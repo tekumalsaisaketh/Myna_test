@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import './App.css';
-
+import ItemList from './components/ItemList';
+import Header from './components/Header';
+import Checkout from './components/Checkout';
 function App() {
+  const queryClient = new QueryClient();
+  const url=window.location.href;
+  const location=url.split('/').at(-1);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+       <BrowserRouter>
+        <div className="App">
+            <Header></Header>
+            <Routes>  
+                  <Route index path='/' element={<ItemList></ItemList>}></Route>
+                  <Route path="/checkout" element={<Checkout></Checkout>} />
+              </Routes>
+  
+      
+        </div>
+    </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

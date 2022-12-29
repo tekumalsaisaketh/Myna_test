@@ -1,0 +1,6 @@
+.ItemsList{
+    display: grid;
+    position: relative;
+    max-width: 90%;
+    grid-template-columns: repeat(auto-fit,minmax(270px,1.5fr));
+}
