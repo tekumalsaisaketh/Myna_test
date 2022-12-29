@@ -2,7 +2,7 @@ Clone the App locally using the link **https://github.com/tekumalsaisaketh/Myna_
 
 Install All the node modules using command( **npm install** )
 
-type : **npm run start **
+type : **npm run start**
 
 App will automatically launch in browser
 
